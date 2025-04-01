@@ -1,28 +1,25 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react-native';
+import { render, fireEvent } from '@testing-library/react-native';
 
-import Button from '../Button';
+import Button from '../Button'; // add the correct path according to your file structure
 
-describe('Button component', () => {
-  it('should render correctly', () => {
-    const { getByTestId } = render(<Button title="Test Button" />);
+test('renders correctly', () => {
+  const { getByText } = render(<Button title="Click me" />);
 
-    expect(getByTestId('button')).toBeDefined();
-  });
+  expect(getByText('Click me')).toBeTruthy();
+});
 
-  it('should execute onPress function when clicked', () => {
-    const onPress = jest.fn();
+test('executes onPress callback on press', () => {
+  const onPress = jest.fn();
+  const { getByText } = render(<Button title="Click me" onPress={onPress} />);
 
-    const { getByTestId } = render(<Button title="Test Button" onPress={onPress} />);
+  fireEvent.press(getByText('Click me'));
 
-    fireEvent.press(getByTestId('button'));
+  expect(onPress).toHaveBeenCalled();
+});
 
-    expect(onPress).toHaveBeenCalled();
-  });
+test('applies correct background color', () => {
+  const { getByTestId } = render(<Button title="Click me" color="blue" />);
 
-  it('should render with correct backgroundColor', () => {
-    const { getByTestId } = render(<Button title="Test Button" color="#FF0000" />);
-
-    expect(getByTestId('button')).toHaveStyle({ backgroundColor: '#FF0000' });
-  });
+  expect(getByTestId('button').props.style.backgroundColor).toBe('blue');
 });
