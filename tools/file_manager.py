@@ -41,11 +41,11 @@ def write_file(file_config: dict, content: str):
     
     file_config: {
         "path": "src/components/",
-        "filename": "MeuComponente.js"
+        "filename": "MeuComponente.jsx"
     }
     """
     path = file_config.get("path", "")
-    filename = file_config.get("filename", "output.js")
+    filename = file_config.get("filename", "output.jsx")
 
     # Garante que o diretório exista
     os.makedirs(path, exist_ok=True)
@@ -75,7 +75,7 @@ def create_component_and_test(component_name: str):
     component_code = generate_code(component_prompt)
     
     # Caminho para salvar o componente
-    component_file_path = os.path.join("src", "components", f"{component_name}.js")
+    component_file_path = os.path.join("src", "components", f"{component_name}.jsx")
     os.makedirs(os.path.dirname(component_file_path), exist_ok=True)
     
     with open(component_file_path, "w", encoding="utf-8") as component_file:
