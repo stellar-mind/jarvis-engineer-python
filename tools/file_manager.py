@@ -7,7 +7,7 @@ def create_package_json():
     # Verifica se a pasta "src" existe, caso contrário, cria ela
     if not os.path.exists("src"):
         os.makedirs("src")
-    package_json_path = os.path.join("src", "package.json")
+    package_json_path = os.path.join("package.json")
 
     if not os.path.exists(package_json_path):
         print("📦 Criando package.json...")
@@ -30,7 +30,7 @@ def create_package_json():
             json.dump(package_data, package_file, indent=2)
         print("✅ package.json criado com sucesso.")
         # Executa o comando 'npm install' para instalar as dependências
-        os.system(f"cd src && npm install")
+        os.system(f"npm install")
         print("✅ dependências instaladas com sucesso.")
     else:
         print("📦 package.json já existe.")
@@ -41,7 +41,7 @@ def write_file(file_config: dict, content: str):
     
     file_config: {
         "path": "src/components/",
-        "filename": "MeuComponente.tsx"
+        "filename": "MeuComponente.js"
     }
     """
     path = file_config.get("path", "")
