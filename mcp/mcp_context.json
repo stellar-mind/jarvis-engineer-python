@@ -1,0 +1,20 @@
+{
+    "actions": [
+        {
+            "type": "create_component_and_test",
+            "input": {
+                "component_name": "DefaultComponent"
+            }
+        },
+        {
+            "type": "run_tests"
+        },
+        {
+            "type": "commit_code",
+            "input": "feat: adiciona componente e seus testes"
+        }
+    ],
+    "state": {
+        "branch": "main"
+    }
+}
