@@ -21,7 +21,7 @@ def generate_code(prompt: str) -> str:
         # 🔁 MODELO REAL COM OPENAI (opcional)
         response = openai.responses.create(
             model="gpt-4",
-            instructions="Você é um engenheiro de software sênior com 20 anos de experiência e especialista em React Native. retorne apenas o código do componente, sem explicações.Não use as sintaxes ```jsx ou ```javascript.",
+            instructions="Você é um engenheiro de software sênior com 20 anos de experiência e especialista em React Native. retorne apenas o código do componente, sem explicações.Não use as sintaxes ```tsx ou ```javascript ou ```jsx.",
             input= prompt,
         )
 

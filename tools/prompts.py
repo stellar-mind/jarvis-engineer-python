@@ -7,7 +7,7 @@ GENERATE_COMPONENT_PROMPT = """Crie um componente funcional em React Native com 
   - Deve centralizar o texto dentro do botão
   - Deve executar onPress ao ser pressionado
 
-Retorne apenas o código do componente, sem explicações. Não use as sintaxes ```jsx ou ```javascript."""
+Retorne apenas o código do componente, sem explicações. Não use as sintaxes ```jsx, ```tsx ou ```javascript."""
 
 # Prompt para gerar um arquivo de teste para o componente
 GENERATE_TEST_PROMPT = """Crie um arquivo de teste para o componente React Native "{component_name}".
@@ -18,4 +18,4 @@ Certifique-se de testar as seguintes funcionalidades:
   - Execução da função onPress ao clicar no botão
   - Aplicação correta da cor de fundo (backgroundColor)
 
-Retorne apenas o código do arquivo de teste, sem explicações.  Não use as sintaxes ```jsx ou ```javascript."""
+Retorne apenas o código do arquivo de teste, sem explicações.  Não use as sintaxes ```jsx,```tsx ou ```javascript."""
