@@ -1,27 +1,27 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
+import { Button } from '../Button';
 
-import Button from './Button'; // Path to your Button component
+describe('Button', () => {
+    const onPressMock = jest.fn();
 
-describe('<Button />', () => {
-  it('renders correctly', () => {
-    const { getByText } = render(<Button />);
-    getByText('Button');
-  });
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
 
-  it('executes onPress function when clicked', () => {
-    const onPress = jest.fn();
-    const { getByText } = render(<Button onPress={onPress} />);
-    
-    fireEvent.press(getByText('Button'));
-    
-    expect(onPress).toHaveBeenCalled();
-  });
+    it('renders correctly', () => {
+        const { getByText } = render(<Button onPress={onPressMock}>Click Me</Button>);
+        expect(getByText('Click Me')).toBeTruthy();
+    });
 
-  it('applies correct backgroundColor', () => {
-    const { getByTestId } = render(<Button />);
-    const button = getByTestId('button');
-    
-    expect(button.props.style.backgroundColor).toBe('blue');
-  });
+    it('invokes onPress prop when clicked', () => {
+        const { getByText } = render(<Button onPress={onPressMock}>Click Me</Button>);
+        fireEvent.press(getByText('Click Me'));
+        expect(onPressMock).toHaveBeenCalled();
+    });
+
+    it('applies background color correctly', () => {
+        const { getByTestId } = render(<Button onPress={onPressMock} backgroundColor='blue'/>);
+        expect(getByTestId('button')).toHaveStyle({ backgroundColor: 'blue' });
+    });
 });

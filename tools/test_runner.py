@@ -20,7 +20,7 @@ def run_tests():
             # Instale as dependências do Babel e Jest
         print("📦 Instalando dependências do Babel e Jest...") 
         babel_install_result = subprocess.run(
-            ["npm", "install", "--save-dev", "@babel/core", "@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript", "babel-jest"],
+            ["npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-jest jest"],
             capture_output=True, text=True, shell=True
         )
         print(babel_install_result.stdout)
