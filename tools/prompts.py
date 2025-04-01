@@ -11,7 +11,7 @@ Retorne apenas o código do componente, sem explicações. Não use as sintaxes 
 
 # Prompt para gerar um arquivo de teste para o componente
 GENERATE_TEST_PROMPT = """Crie um arquivo de teste para o componente React Native "{component_name}".
-O teste deve usar a biblioteca React Native Testing Library.
+O teste deve usar a biblioteca jest.
 Certifique-se de testar as seguintes funcionalidades:
 
   - Renderização correta do componente
