@@ -75,7 +75,7 @@ def create_component_and_test(component_name: str):
     component_code = generate_code(component_prompt)
     
     # Caminho para salvar o componente
-    component_file_path = os.path.join("src", "components", f"{component_name}.tsx")
+    component_file_path = os.path.join("src", "components", f"{component_name}.jsx")
     os.makedirs(os.path.dirname(component_file_path), exist_ok=True)
     
     with open(component_file_path, "w", encoding="utf-8") as component_file:
@@ -87,7 +87,7 @@ def create_component_and_test(component_name: str):
     test_code = generate_code(test_prompt)
     
     # Caminho para salvar o arquivo de teste
-    test_file_path = os.path.join("src", "components", "__tests__", f"{component_name}.test.tsx")
+    test_file_path = os.path.join("src", "components", "__tests__", f"{component_name}.test.jsx")
     os.makedirs(os.path.dirname(test_file_path), exist_ok=True)
     
     with open(test_file_path, "w", encoding="utf-8") as test_file:
