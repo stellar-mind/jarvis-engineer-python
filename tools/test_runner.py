@@ -17,7 +17,18 @@ def run_tests():
             print("❌ Erro ao instalar dependências.")
             print(install_result.stderr)
             return
+            # Instale as dependências do Babel e Jest
+            print("📦 Instalando dependências do Babel e Jest...") 
+            babel_install_result = subprocess.run(
+                ["npm", "install", "--save-dev", "@babel/core", "@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript", "babel-jest"],
+                capture_output=True, text=True, shell=True
+            )
+            print(babel_install_result.stdout)
 
+            if babel_install_result.returncode != 0:
+                print("❌ Erro ao instalar dependências do Babel e Jest.")
+                print(babel_install_result.stderr)
+                return
         # Em seguida, execute os testes
         print("🧪 Rodando os testes com Jest...")
         test_result = subprocess.run(["npx", "jest"], capture_output=True, text=True, shell=True)
