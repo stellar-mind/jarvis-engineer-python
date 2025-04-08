@@ -1,0 +1,1 @@
+# Erro ao gerar código. Verifique sua API key e conexão.
